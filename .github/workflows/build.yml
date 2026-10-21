@@ -14,8 +14,10 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 8.7
-      - run: gradle assembleDebug --no-daemon
+      - name: Build APK
+        working-directory: minimal-home
+        run: gradle assembleDebug --no-daemon
       - uses: actions/upload-artifact@v4
         with:
           name: minimal-home-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: minimal-home/app/build/outputs/apk/debug/app-debug.apk 
